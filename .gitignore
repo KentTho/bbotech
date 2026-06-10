@@ -1,0 +1,36 @@
+# Local QA reports and screenshots
+report/
+report/**
+
+# Vercel local config
+.vercel/
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+.claude/
+
+# Dependencies / build output if any
+node_modules/
+dist/
+build/
+.cache/
+
+# Local non-website files (docs, prompt forms, drafts)
+*.docx
+FORM_CHUAN_VIET_PROMPT_CHO_CLAUDE_CODE_CODEX_ANTIGRAVITY.md
+PROMPT_06R_RECOVER_INTERRUPTED_WORK_AUDIT_CURRENT_STATE.md

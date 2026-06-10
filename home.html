@@ -1,0 +1,1111 @@
+<!doctype html>
+<html lang="vi">
+
+<!-- =========================================================
+     BBO TECH — LANDING PAGE home.html
+     Đây là entry point duy nhất của trang. KHÔNG đổi tên file.
+     Cấu trúc: Head → Header → Banner → Brand → Image Create
+               → Feature → Stock Image → Working Process
+               → Gallery → FAQ → CTA → Footer
+               → Mobile Menu (ẩn) → Sidebar Offcanvas
+               → Overlay → SVG Wave → Back-to-Top → Scripts
+     Xem thêm: report/LANDING_PAGE_PROJECT_FLOW_MAP.md
+========================================================= -->
+
+<!-- =========================================================
+     HEAD — Meta, CSS links
+     ⚠️  Thứ tự link CSS quan trọng (preload trước, stylesheet sau).
+         KHÔNG đổi thứ tự.
+         KHÔNG sửa href của vendor/plugin.
+========================================================= -->
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<!-- Favicon — đường dẫn absolute /assets/... sẽ lỗi nếu deploy dưới subfolder -->
+	<link rel="shortcut icon" type="image/x-icon" href="assets/images/logo/favicon.png" />
+	<title>BBO Tech</title>
+
+	<!-- Preload CSS (tăng tốc tải) -->
+	<link rel="preload" href="assets/css/plugins/swiper.min.css" as="style" />
+	<link rel="preload" href="assets/css/plugins/magnific-popup.css" as="style" />
+	<link rel="preload" href="assets/css/plugins/metismenu.css" as="style" />
+	<link rel="preload" href="assets/css/vendor/bootstrap.min.css" as="style" />
+	<link rel="preload" href="assets/css/vendor/animate.css" as="style" />
+	<link rel="preload" href="assets/css/style.css" as="style" />
+
+	<!-- Stylesheet thật sự được áp dụng -->
+	<link rel="stylesheet" href="assets/css/plugins/swiper.min.css" />
+	<link rel="stylesheet" href="assets/css/plugins/magnific-popup.css" />
+	<link rel="stylesheet" href="assets/css/plugins/metismenu.css" />
+	<link rel="stylesheet" href="assets/css/vendor/bootstrap.min.css" />
+	<link rel="stylesheet" href="assets/css/vendor/animate.css" />
+	<link rel="stylesheet" href="assets/css/plugins/fontawesome.min.css" />
+	<!-- CSS chính — chứa toàn bộ brand token BBO Tech -->
+	<link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<!-- END HEAD -->
+
+<!-- =========================================================
+     BODY
+     Class: home-seven (variant template), overflow-x-visible
+     ⚠️  Không xóa class home-seven — CSS có nhiều rule scoped theo class này.
+========================================================= -->
+
+<body class="home-seven overflow-x-visible">
+
+	<!-- =========================================================
+     HEADER / MENU CHÍNH
+     Vai trò: Logo BBO Tech, navigation desktop, nút CTA "Get Started", hamburger mobile.
+     Lưu ý: KHÔNG đổi class/id sau đây — được main.js dùng:
+       - .header--sticky  → rtsJs.stickyHeader()
+       - .hamburger-open-btn → rtsJs.mobileMenu()
+       - #menu-btn        → rtsJs.mobileMenu()
+     Container: .custom-container (max-width ~1320px)
+     Nền: dark (#07110B) — chữ trắng (CSS override Prompt 03)
+========================================================= -->
+	<header class="header-style-one header-five header--sticky">
+		<div class="custom-container">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="header-style-one-wrapper">
+						<div class="left-area">
+							<!-- Logo BBO Tech -->
+							<div class="logo-area">
+								<a href="" class="logo">
+									<img class="light" src="assets/images/logo/bbotech_logo.png" alt="BBO Tech" />
+									<img class="dark" src="assets/images/logo/bbotech_logo.png" alt="BBO Tech" />
+								</a>
+							</div>
+							<!-- Nav desktop (ẩn trên mobile ≤992px) -->
+							<nav class="main-nav-area">
+								<ul class="list-unstyled rts-desktop-menu">
+									<li class="menu-item">
+										<a class="main-element without-arrow" href="#ai-automation">AI Automation</a>
+									</li>
+									<li class="menu-item">
+										<a class="main-element without-arrow" href="#multi-platform-chatbot">Chatbot</a>
+									</li>
+									<li class="menu-item">
+										<a class="main-element without-arrow" href="#website-solutions">Website</a>
+									</li>
+									<li class="menu-item">
+										<a class="main-element without-arrow" href="#growth-infrastructure">Dịch vụ mở
+											rộng</a>
+									</li>
+								</ul>
+							</nav>
+						</div>
+
+						<!-- Nút CTA header + hamburger mobile -->
+						<div class="button-area-start">
+							<a href="https://bbotech.vn/" target="_blank" rel="noopener noreferrer"
+								class="rts-btn btn-primary btn-border icon-prev">
+								Liên hệ ngay
+								<span class="icon">
+									<!-- SVG gradient inline — màu xanh lá BBO (#22C55E → #0F8A5F) -->
+									<svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+										xmlns="http://www.w3.org/2000/svg">
+										<g clip-path="url(#clip0_701_12390)">
+											<circle cx="12" cy="12" r="12" fill="url(#paint0_linear_701_12390)" />
+											<path
+												d="M9.75 8.25V9H14.4713L8.25 15.2213L8.77875 15.75L15 9.52875V14.25H15.75V8.25H9.75Z"
+												fill="white" />
+										</g>
+										<defs>
+											<linearGradient id="paint0_linear_701_12390" x1="0" y1="12" x2="24" y2="12"
+												gradientUnits="userSpaceOnUse">
+												<stop offset="0%" stop-color="#22C55E" />
+												<stop offset="100%" stop-color="#0F8A5F" />
+											</linearGradient>
+											<clipPath id="clip0_701_12390">
+												<rect width="24" height="24" fill="white" />
+											</clipPath>
+										</defs>
+									</svg>
+								</span>
+							</a>
+							<!-- Hamburger — chỉ hiện trên mobile ≤992px -->
+							<button type="button" class="menu-btn menu-btn-toggle hamburger-open-btn radius-6"
+								id="menu-btn" aria-label="Mở menu">
+								<svg width="20" height="16" viewBox="0 0 20 16" fill="none"
+									xmlns="http://www.w3.org/2000/svg">
+									<rect y="14" width="20" height="2" fill="#FFFFFF"></rect>
+									<rect y="7" width="20" height="2" fill="#FFFFFF"></rect>
+									<rect width="20" height="2" fill="#FFFFFF"></rect>
+								</svg>
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+	<!-- END HEADER / MENU CHÍNH -->
+
+
+	<!-- =========================================================
+     SECTION 1 — HERO / BANNER
+     Class: .rts-banner-area-seven
+     Vai trò: Headline chính, mô tả, form tìm kiếm, ảnh cuộn parallax.
+     Nền: Dark (#07110B) — chữ trắng.
+     JS liên quan:
+       - .rts-text-anime-style-1 → rtsJs.splitText() — KHÔNG đổi class!
+       - .scrollingtext-1 → rtsJs.scrollingText() — KHÔNG đổi class!
+     Assets:
+       - banner/04–11.webp (cuộn)
+       - icon/checkmark.svg, icon/sub-icon-w.svg
+     ⚠️  class="text-split scrollingtext-1" bắt buộc — GSAP animation.
+========================================================= -->
+	<section class="rts-banner-area-seven" id="home">
+		<div class="container">
+			<div class="banner-content-wrapper2">
+				<!-- Badge trên heading -->
+				<ul class="banner-meta wow fadeInUp" data-wow-delay="0.3s">
+					<li>
+						<img src="assets/images/icon/checkmark.svg" alt="icon" /> Khai mở
+						sức mạnh AI
+					</li>
+					<li>
+						<img src="assets/images/icon/checkmark.svg" alt="icon" /> Không cần
+						thẻ tín dụng
+					</li>
+				</ul>
+
+				<!-- Heading chính — animate bằng GSAP SplitText -->
+				<h1 class="banner-title rts-text-anime-style-1">
+					NỀN TẢNG GIÚP TRIỆU NGƯỜI VIỆT <br />
+					LÀM CHỦ AI
+				</h1>
+
+			</div>
+		</div>
+
+		<!-- Ảnh cuộn ngang parallax (GSAP ScrollTrigger x) -->
+		<!-- ⚠️  class="text-split scrollingtext-1" — KHÔNG đổi, JS bắt selector này -->
+		<div class="banner-image-wrapper">
+			<div class="text-split scrollingtext-1">
+				<div class="wrapper-inner">
+					<!-- Lần lặp 1 — 8 image-wrapper (04–11.webp) -->
+					<div class="image-wrapper">
+						<div class="banner-image-item">
+							<img src="assets/images/banner/bbotech_banner_04_a.png" width="437" alt="banner-image" />
+						</div>
+					</div>
+					<div class="image-wrapper">
+						<div class="banner-image-item">
+							<img src="assets/images/banner/bbotech_banner_5_a.png" width="437" alt="banner-image" />
+						</div>
+					</div>
+					<div class="image-wrapper">
+						<div class="banner-image-item">
+							<img src="assets/images/banner/bbotech_banner_08_a.png" width="437" alt="banner-image" />
+						</div>
+					</div>
+					<div class="image-wrapper">
+						<div class="banner-image-item">
+							<img src="assets/images/banner/bbotech_banner_10_a.png" width="437" alt="banner-image" />
+						</div>
+					</div>
+					<!-- Lần lặp 2 — lặp lại để tạo hiệu ứng infinite scroll -->
+					<div class="image-wrapper">
+						<div class="banner-image-item">
+							<img src="assets/images/banner/bbotech_banner_04_a.png" width="437" alt="banner-image" />
+						</div>
+					</div>
+					<div class="image-wrapper">
+						<div class="banner-image-item">
+							<img src="assets/images/banner/bbotech_banner_5_a.png" width="437" alt="banner-image" />
+						</div>
+					</div>
+					<div class="image-wrapper">
+						<div class="banner-image-item">
+							<img src="assets/images/banner/bbotech_banner_08_a.png" width="437" alt="banner-image" />
+						</div>
+					</div>
+					<div class="image-wrapper">
+						<div class="banner-image-item">
+							<img src="assets/images/banner/bbotech_banner_10_a.png" width="437" alt="banner-image" />
+						</div>
+					</div>
+					<div class="col-6">
+						<div class="banner-image-item">
+							<img src="assets/images/banner/10.webp" width="205" alt="banner-image" />
+						</div>
+					</div>
+					<div class="col-6">
+						<div class="banner-image-item">
+							<img src="assets/images/banner/11.webp" width="205" alt="banner-image" />
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		</div>
+		</div>
+		<!-- Decorative blur shapes (CSS only, không có JS) -->
+		<div class="bg-blur-shape">
+			<div class="bg-shape-one"></div>
+			<div class="bg-shape-two"></div>
+		</div>
+	</section>
+	<!-- END SECTION 1 — HERO / BANNER -->
+
+
+	<!-- =========================================================
+     SECTION 2 — BRAND / ĐỐI TÁC
+     Class: .rts-brand-area.area-7
+     Vai trò: Logo đối tác / trusted brands.
+     Nền: Sáng (trắng/off-white).
+     ⚠️  brand/03.html, 04.html, 05.html = file 0 byte → ảnh vỡ.
+         Cần thay bằng ảnh thật (xem PROMPT_02_FIX_BROKEN_ASSETS.md).
+     JS: WOW.js fadeInUp (.wow.fadeInUp)
+========================================================= -->
+	<div class="rts-brand-area area-7 rts-section-gap">
+	</div>
+	<!-- END SECTION 2 — BRAND / ĐỐI TÁC -->
+
+
+	<!-- =========================================================
+     SECTION 3 — IMAGE CREATE (Tabs)
+     Class: .rts-image-create-area
+     Vai trò: Showcase tính năng tạo ảnh AI với tab switcher Bootstrap.
+     Nền: Sáng.
+     JS liên quan:
+       - .animated-title → rtsJs.textTitleAnimation__2() — KHÔNG đổi class!
+       - .scale-img-from-to → rtsJs.scaleImgFromTo() — KHÔNG đổi class/data-value-*!
+       - data-bs-toggle="tab" → Bootstrap Tabs — KHÔNG đổi attr!
+     Màu: Heading .cw đã được flip sang dark (Prompt 05).
+           Tab .nav-link inactive đã được flip sang muted (Prompt 05).
+     ⚠️  icon/sub-icon.html = 0 byte → icon sub-title vỡ.
+========================================================= -->
+	<section class="rts-image-create-area" id="ai-automation">
+		<div class="container">
+			<div class="rts-image-create-wrapper">
+				<div class="row g-5">
+					<div class="col-lg-6">
+						<div class="image-create-tab-content">
+							<div class="section-title-area">
+								<p class="sub-title wow fadeInUp" data-wow-delay=".3s">
+									<!-- ⚠️  icon/sub-icon.html = 0 byte → broken -->
+									<img src="assets/images/icon/sub-icon-w.svg" alt="" /> Tự động hóa AI
+								</p>
+								<h2 class="section-title animated-title mb-0 cw">
+									AI Automation cho
+									<span class="gradient-text">vận hành doanh nghiệp</span>
+								</h2>
+							</div>
+
+							<div class="image-create-nav-content-wrapper">
+								<!-- Tab navigation -->
+								<ul class="nav nav-tabs wow fadeInUp" data-wow-delay=".6s" id="imageCreateTab"
+									role="tablist">
+									<li class="nav-item" role="presentation">
+										<button class="nav-link active" id="game-assets-tab" data-bs-toggle="tab"
+											data-bs-target="#game-assets" type="button" role="tab"
+											aria-controls="game-assets" aria-selected="true">
+											Chi tiết
+										</button>
+									</li>
+									<li class="nav-item" role="presentation">
+										<button class="nav-link" id="concept-art-tab" data-bs-toggle="tab"
+											data-bs-target="#concept-art" type="button" role="tab"
+											aria-controls="concept-art" aria-selected="false">
+											Tính năng
+										</button>
+									</li>
+								</ul>
+
+								<!-- Tab content panels -->
+								<div class="tab-content wow fadeInUp" data-wow-delay=".9s" id="imageCreateTabContent">
+									<div class="tab-pane fade show active" id="game-assets" role="tabpanel"
+										aria-labelledby="game-assets-tab" tabindex="0">
+										<p class="desc">
+											Nghiên cứu và phát triển các giải pháp tự động hóa tích hợp trí tuệ nhân tạo
+											(AI), giúp cắt giảm tối đa các tác vụ thủ công lặp đi lặp lại.
+										</p>
+									</div>
+									<div class="tab-pane fade" id="concept-art" role="tabpanel"
+										aria-labelledby="concept-art-tab" tabindex="0">
+										<p class="desc">
+											Kết nối các công cụ làm việc độc lập thành một luồng xử lý tự động,
+											tối ưu hóa hiệu suất vận hành nội bộ.
+										</p>
+									</div>
+								</div>
+							</div>
+
+							<a href="https://store.bbotech.vn/?_gl=1%2Awzwa16%2A_ga%2AMTc5NzkyMjY1OS4xNzcwMDQwMzk5%2A_ga_GY9NJB889H%2AczE3ODEwODU2MDIkbzQyJGcwJHQxNzgxMDg1NjAyJGo2MCRsMCRoMA."
+								target="_blank" rel="noopener noreferrer" class="rts-btn border-btn wow fadeInUp"
+								data-wow-delay="1.2s">
+								Khám phá thêm
+								<span class="icon">
+									<svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+										xmlns="http://www.w3.org/2000/svg">
+										<g clip-path="url(#clip0_701_12390)">
+											<circle cx="12" cy="12" r="12" fill="url(#paint0_linear_701_12390)" />
+											<path
+												d="M9.75 8.25V9H14.4713L8.25 15.2213L8.77875 15.75L15 9.52875V14.25H15.75V8.25H9.75Z"
+												fill="white" />
+										</g>
+										<defs>
+											<linearGradient id="paint0_linear_701_12390" x1="0" y1="12" x2="24" y2="12"
+												gradientUnits="userSpaceOnUse">
+												<stop offset="0%" stop-color="#22C55E" />
+												<stop offset="100%" stop-color="#0F8A5F" />
+											</linearGradient>
+											<clipPath id="clip0_701_12390">
+												<rect width="24" height="24" fill="white" />
+											</clipPath>
+										</defs>
+									</svg>
+								</span>
+							</a>
+						</div>
+					</div>
+
+					<!-- Ảnh bên phải — scale-img-from-to (GSAP) -->
+					<div class="col-lg-6">
+						<div class="image-wrapper d-block">
+							<img class="w-60 scale-img-from-to" data-value-1="1.5" data-value-2="1"
+								src="assets/images/image-create/bbotech_01.png" width="664" alt="create-image" />
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="bg-blur-shape"></div>
+	</section>
+	<!-- END SECTION 3 — IMAGE CREATE -->
+
+
+	<!-- =========================================================
+     SECTION 4 — FEATURE (Tính năng chatbot)
+     Class: .rts-feature-area
+     Vai trò: Liệt kê 3 tính năng AI chính với icon + text.
+     Nền: Sáng — nhưng các card .single-chatbot có nền dark (#23211F) → chữ trắng đúng ý.
+     Container: .custom-container2 (đã được scoped về max-width 1320px ở Prompt 05)
+     JS liên quan:
+       - .animated-title → rtsJs.textTitleAnimation__2()
+       - .scale-img-from-to → rtsJs.scaleImgFromTo()
+       - .wow.scaleIn → WOW.js
+     Màu: Heading .cw → dark (Prompt 05). Card title/desc → trắng (giữ nguyên vì nền dark card).
+========================================================= -->
+	<section class="rts-feature-area rts-section-gap" id="multi-platform-chatbot">
+		<div class="custom-container2">
+			<div class="section-title-area center-style">
+				<p class="sub-title wow fadeInUp" data-wow-delay=".3s">
+					<!-- ⚠️  icon/sub-icon.html = 0 byte → broken -->
+					<img src="assets/images/icon/sub-icon-w.svg" alt="" /> Chatbot đa nền tảng
+				</p>
+				<h2 class="section-title animated-title mb-0 cw">
+					Multi-platform Chatbot <br />
+					<span class="gradient-text">cho nhiều kênh tương tác</span>
+				</h2>
+			</div>
+
+			<div class="section-inner mt--60">
+				<div class="row g-5 align-items-center">
+					<!-- Ảnh feature trái -->
+					<div class="col-lg-6">
+						<div class="feature-right-images wow scaleIn" data-wow-delay=".4s">
+							<div class="image-wrapper d-block">
+								<img class="w-100 scale-img-from-to" data-value-1="0.5" data-value-2="1"
+									src="assets/images/feature/bbotech_08.png" alt="" />
+							</div>
+						</div>
+					</div>
+
+					<!-- Feature cards phải — nền dark card, chữ trắng OK -->
+					<div class="col-lg-6">
+						<div class="feature-chatbot-item">
+							<div class="single-chatbot wow fadeInUp" data-wow-delay=".3s">
+								<div class="icon">
+									<img src="assets/images/feature/icon/07.svg" alt="chatbot" />
+								</div>
+								<div class="content">
+									<h3 class="title">Thiết lập chatbot thông minh</h3>
+									<p class="desc">
+										Xây dựng hệ thống chatbot trên Website, Facebook,
+										Telegram và các nền tảng phổ biến khác.
+									</p>
+								</div>
+							</div>
+							<div class="single-chatbot wow fadeInUp" data-wow-delay=".6s">
+								<div class="icon">
+									<img src="assets/images/feature/icon/08.svg" alt="chatbot" />
+								</div>
+								<div class="content">
+									<h3 class="title">Chăm sóc khách hàng 24/7</h3>
+									<p class="desc">
+										Tự động tương tác, giải đáp thắc mắc và hỗ trợ khách
+										hàng liên tục mà không cần xử lý thủ công.
+									</p>
+								</div>
+							</div>
+							<div class="single-chatbot wow fadeInUp" data-wow-delay=".9s">
+								<div class="icon">
+									<img src="assets/images/feature/icon/09.svg" alt="chatbot" />
+								</div>
+								<div class="content">
+									<h3 class="title">Thu thập leads nhanh chóng</h3>
+									<p class="desc">
+										Ghi nhận thông tin khách hàng tiềm năng nhanh hơn, giúp
+										đội ngũ kinh doanh theo dõi và xử lý hiệu quả.
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- END SECTION 4 — FEATURE -->
+
+
+	<!-- =========================================================
+     SECTION 5 — STOCK IMAGE
+     Class: .rts-stock-image-area
+     Vai trò: Showcase ảnh stock với grid cuộn zoom.
+     Nền: Sáng.
+     JS liên quan:
+       - .scrollingzoom-1 → rtsJs.scrollingZoom() — KHÔNG đổi class!
+       - .animated-title → rtsJs.textTitleAnimation__2()
+     Màu: Heading .cw → dark (Prompt 05). Border-btn → green (Prompt 05).
+     Assets: stock-image/01–05.webp (OK), icon/sub-icon.html (broken).
+========================================================= -->
+	<section class="rts-stock-image-area rts-section-gapBottom" id="website-solutions">
+		<div class="container">
+			<div class="rts-stock-image-wrapper">
+				<div class="row g-5 align-items-center">
+					<!-- Lưới ảnh stock (cuộn zoom) -->
+					<div class="col-lg-6">
+						<div class="left-content-area">
+							<!-- ⚠️  class="scrollingzoom-1" bắt buộc — KHÔNG đổi -->
+							<div class="stock-image-item-wrapper text-split scrollingzoom-1">
+								<div class="image-wrapper d-block">
+									<img class="w-100 scale-img-from-to" data-value-1="0.5" data-value-2="1"
+										src="assets/images/stock-image/05.png" alt="" />
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- Nội dung text bên phải -->
+					<div class="col-lg-6">
+						<div class="stock-image-content">
+							<div class="section-title-area">
+								<p class="sub-title wow fadeInUp" data-wow-delay=".3s">
+									<!-- ⚠️  icon/sub-icon.html = 0 byte → broken -->
+									<img src="assets/images/icon/sub-icon-w.svg" alt="" /> Giải pháp
+									Website trọn gói
+								</p>
+								<h2 class="section-title animated-title mb-0 cw">
+									WaaS –
+									<span class="gradient-text">Website Solutions</span>
+								</h2>
+							</div>
+							<p class="desc wow fadeInUp" data-wow-delay=".6s">
+								Thiết kế, xây dựng và bảo trì hệ thống website chuyên nghiệp,
+								được tinh chỉnh theo nhu cầu thực tế của từng doanh nghiệp.
+								Tăng tốc độ đưa sản phẩm/dịch vụ lên môi trường trực tuyến,
+								tối ưu UX/UI và đảm bảo khả năng mở rộng cao.
+							</p>
+							<a href="https://store.bbotech.vn/?_gl=1%2Awzwa16%2A_ga%2AMTc5NzkyMjY1OS4xNzcwMDQwMzk5%2A_ga_GY9NJB889H%2AczE3ODEwODU2MDIkbzQyJGcwJHQxNzgxMDg1NjAyJGo2MCRsMCRoMA."
+								target="_blank" rel="noopener noreferrer" class="rts-btn border-btn wow fadeInUp"
+								data-wow-delay=".9s">
+								Khám phá thêm
+								<span class="icon">
+									<svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+										xmlns="http://www.w3.org/2000/svg">
+										<g clip-path="url(#clip0_701_12390)">
+											<circle cx="12" cy="12" r="12" fill="url(#paint0_linear_701_12390)" />
+											<path
+												d="M9.75 8.25V9H14.4713L8.25 15.2213L8.77875 15.75L15 9.52875V14.25H15.75V8.25H9.75Z"
+												fill="white" />
+										</g>
+										<defs>
+											<linearGradient id="paint0_linear_701_12390" x1="0" y1="12" x2="24" y2="12"
+												gradientUnits="userSpaceOnUse">
+												<stop offset="0%" stop-color="#22C55E" />
+												<stop offset="100%" stop-color="#0F8A5F" />
+											</linearGradient>
+											<clipPath id="clip0_701_12390">
+												<rect width="24" height="24" fill="white" />
+											</clipPath>
+										</defs>
+									</svg>
+								</span>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- END SECTION 5 — STOCK IMAGE -->
+
+
+	<!-- =========================================================
+     SECTION 6 — WORKING PROCESS (Cách hoạt động)
+     Class: .rts-working-process-area
+     Vai trò: 3 bước (01 Enter Prompt, 02 Choose Style, 03 Generate).
+     Nền: Card dark (.bg-dark) — chữ trắng ĐÚNG Ý — KHÔNG flip.
+     JS liên quan:
+       - .element-move → rtsJs.elementMove() — KHÔNG đổi class!
+       - .moving-img → rtsJs.elementMove() — KHÔNG đổi class/data-speed!
+       - .animated-title → rtsJs.textTitleAnimation__2()
+     Assets: working-process/line-2.svg (OK), bg-dot-2.webp (OK, 547KB).
+     ⚠️  icon/sub-icon.html = 0 byte → icon sub-title vỡ.
+========================================================= -->
+	<section class="rts-working-process-area" id="growth-infrastructure">
+		<div class="custom-container">
+			<!-- Card dark — chứa toàn bộ nội dung -->
+			<!-- P13H: chuyển từ working-process cũ sang Service Showcase đồng bộ
+			     (visual stage trái + 3 service sync item phải). Nơ-ron (line/dot/blur)
+			     được đẩy ra rìa làm connector công nghệ, màu xanh #189e1e. -->
+			<div class="working-process-wrapper-two bg-dark element-move service-sync-wrapper">
+				<!-- Đường nơ-ron rìa trái — dùng SVG xanh #189e1e (P13H) -->
+				<div class="line">
+					<img src="assets/images/working-process/line-2-green.svg" alt="" />
+				</div>
+
+				<!-- Heading section -->
+				<div class="section-title-area service-sync-head">
+					<p class="sub-title wow fadeInUp" data-wow-delay=".3s">
+						<!-- ⚠️  icon/sub-icon.html = 0 byte → broken -->
+						<img src="assets/images/icon/sub-icon-w.svg" alt="" /> Dịch vụ mở rộng
+					</p>
+					<h2 class="section-title animated-title mb-0 cw">
+						Giải pháp tăng trưởng
+						<span class="gradient-text">&amp; hạ tầng số</span>
+					</h2>
+				</div>
+
+				<div class="row g-5 align-items-center service-sync-row">
+					<!-- CỘT TRÁI: Visual stage lớn — 3 visual card tự chạy đồng bộ.
+					     ⚠️  Chưa có 3 ảnh thật trong project → dùng placeholder CSS,
+					         KHÔNG tạo <img src> giả gây 404. Khi có ảnh thật, thay nền
+					         .service-visual-card bằng <img> hoặc background-image. -->
+					<!-- CỘT TRÁI: Visual stage lớn — entrance fadeInLeft (WOW), ảnh thật cross-fade.
+					     Ảnh thật từ assets/images/stock-image/ (04→bbotech_04, 05→bbotech_05, 06→bbotech_06).
+					     Muốn đổi ảnh: thay src trong .svc-img tương ứng, KHÔNG để src rỗng → tránh 404. -->
+					<div class="col-lg-6 service-visual-col wow fadeInLeft" data-wow-delay=".2s">
+						<div class="service-visual-stage" aria-hidden="true">
+							<div class="service-visual-card email is-pos-1" data-service="04"
+								data-image-slot="assets/images/stock-image/bbotech_04.png">
+								<img class="svc-img" src="assets/images/stock-image/bbotech_04.png"
+									alt="Email Marketing" />
+							</div>
+							<div class="service-visual-card social is-pos-2" data-service="05"
+								data-image-slot="assets/images/stock-image/bbotech_05.png">
+								<img class="svc-img" src="assets/images/stock-image/bbotech_05.png"
+									alt="Social Media Management" />
+							</div>
+							<div class="service-visual-card iaas is-pos-3" data-service="06"
+								data-image-slot="assets/images/stock-image/bbotech_06.png">
+								<img class="svc-img" src="assets/images/stock-image/bbotech_06.png"
+									alt="IaaS Infrastructure" />
+							</div>
+						</div>
+					</div>
+
+					<!-- CỘT PHẢI: 3 service item 04/05/06 — entrance fadeInRight (WOW),
+					     highlight đồng bộ với visual. Bỏ số lớn, thay bằng icon + badge nhỏ. -->
+					<div class="col-lg-6 service-content-col wow fadeInRight" data-wow-delay=".35s">
+						<div class="working-step-wrapper two service-sync-list">
+							<div class="single-step service-sync-item is-pos-1" data-service="04">
+								<span class="service-icon"><i class="fa-solid fa-envelope"></i></span>
+								<div class="content">
+									<h4 class="title">Email Marketing</h4>
+									<p class="desc">
+										Xây dựng hệ thống email marketing bài bản, tự động hóa
+										chăm sóc khách hàng.
+									</p>
+									<ul class="step-features">
+										<li>Quản lý danh sách liên hệ tập trung</li>
+										<li>Follow-up campaigns theo hành vi khách hàng</li>
+									</ul>
+								</div>
+							</div>
+							<div class="single-step service-sync-item is-pos-2" data-service="05">
+								<span class="service-icon"><i class="fa-solid fa-share-nodes"></i></span>
+								<div class="content">
+									<h4 class="title">Social Media Management</h4>
+									<p class="desc">
+										Vận hành đa kênh trên các nền tảng mạng xã hội lớn
+										hiện nay.
+									</p>
+									<ul class="step-features">
+										<li>Nghiên cứu xu hướng và định hướng nội dung</li>
+										<li>Đo lường, phân tích hiệu suất tiếp thị</li>
+									</ul>
+								</div>
+							</div>
+							<div class="single-step service-sync-item is-pos-3" data-service="06">
+								<span class="service-icon"><i class="fa-solid fa-server"></i></span>
+								<div class="content">
+									<h4 class="title">IaaS – Infrastructure</h4>
+									<p class="desc">
+										Cung cấp hạ tầng số giúp ứng dụng và cơ sở dữ liệu
+										vận hành an toàn, mượt mà.
+									</p>
+									<ul class="step-features">
+										<li>Bảo mật và quyền tự chủ dữ liệu</li>
+										<li>Tối ưu chi phí, mở rộng linh hoạt</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Decorative elements trong card dark -->
+				<div class="bg-blur-shape">
+					<span class="shape"></span>
+					<span class="shape"></span>
+				</div>
+				<!-- ⚠️  .moving-img + data-speed → elementMove() JS — KHÔNG đổi -->
+				<div class="bg-dot-shape moving-wrapper">
+					<img class="moving-img" data-speed="0.05" src="assets/images/working-process/bg-dot-2.webp"
+						width="1006" alt="" />
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- END SECTION 6 — WORKING PROCESS -->
+
+
+	<!-- =========================================================
+     SECTION 7 — GALLERY
+     Class: .rts-gallery-area
+     Vai trò: Grid ảnh gallery cuộn dọc vô tận (GSAP yPercent).
+     Nền: Sáng.
+     JS liên quan:
+       - .scrollingtext-2 → rtsJs.scrollingText2() — KHÔNG đổi class!
+     Assets: gallery/01–05.webp (lặp 2 lần để tạo vô tận).
+     Màu: Heading .cw → dark (Prompt 04). Nút "Explore More" → green.
+     ⚠️  icon/sub-icon.html = 0 byte → icon sub-title vỡ.
+========================================================= -->
+	<section class="rts-gallery-area">
+		<div class="container">
+			<div class="section-title-area">
+				<div class="left">
+					<p class="sub-title wow fadeInUp" data-wow-delay=".3s">
+						<img src="assets/images/icon/sub-icon-w.svg" alt="" /> Bộ giải pháp
+					</p>
+					<h2 class="section-title animated-title cw mb-0">
+						Thư viện giải pháp <span class="gradient-text">BBO Tech</span>
+					</h2>
+				</div>
+				<div class="stock-image-content">
+					<a href="https://store.bbotech.vn/?_gl=1%2Awzwa16%2A_ga%2AMTc5NzkyMjY1OS4xNzcwMDQwMzk5%2A_ga_GY9NJB889H%2AczE3ODEwODU2MDIkbzQyJGcwJHQxNzgxMDg1NjAyJGo2MCRsMCRoMA."
+						target="_blank" rel="noopener noreferrer" class="rts-btn border-btn wow fadeInUp"
+						data-wow-delay=".9s">
+						Khám phá thêm
+						<span class="icon">
+							<svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+								xmlns="http://www.w3.org/2000/svg">
+								<g clip-path="url(#clip0_701_12390)">
+									<circle cx="12" cy="12" r="12" fill="url(#paint0_linear_701_12390)" />
+									<path
+										d="M9.75 8.25V9H14.4713L8.25 15.2213L8.77875 15.75L15 9.52875V14.25H15.75V8.25H9.75Z"
+										fill="white" />
+								</g>
+								<defs>
+									<linearGradient id="paint0_linear_701_12390" x1="0" y1="12" x2="24" y2="12"
+										gradientUnits="userSpaceOnUse">
+										<stop offset="0%" stop-color="#22C55E" />
+										<stop offset="100%" stop-color="#0F8A5F" />
+									</linearGradient>
+									<clipPath id="clip0_701_12390">
+										<rect width="24" height="24" fill="white" />
+									</clipPath>
+								</defs>
+							</svg>
+						</span>
+					</a>
+				</div>
+			</div>
+		</div>
+
+		<!-- Gallery cuộn dọc — 5 ảnh × 2 lần lặp -->
+		<!-- ⚠️  class="text-split scrollingtext-2" bắt buộc — KHÔNG đổi -->
+		<div class="section-inner">
+			<div class="gallery-main-wrapper">
+				<div class="text-split scrollingtext-2">
+					<div class="gallery-image-wrapper mt--60">
+						<!-- P13L: SECTION 07 dùng ảnh pin_* từ assets/images/gallery/.
+						     Giữ class .scrollingtext-2 + gallery (KHÔNG đổi).
+						     P13P: entrance staggered theo từng hàng (wow fadeInUp) cho tự nhiên. -->
+						<!-- Lần lặp 1 -->
+						<div class="gallery-image-top wow fadeInUp" data-wow-delay=".15s">
+							<div class="single-gallery-image">
+								<img src="assets/images/gallery/pin_01.jpg" width="437"
+									alt="Hình ảnh giải pháp BBO Tech 01" />
+							</div>
+							<div class="single-gallery-image">
+								<img src="assets/images/gallery/pin_02.jpg" width="437"
+									alt="Hình ảnh giải pháp BBO Tech 02" />
+							</div>
+							<div class="single-gallery-image">
+								<img src="assets/images/gallery/pin_03.jpg" width="437"
+									alt="Hình ảnh giải pháp BBO Tech 03" />
+							</div>
+						</div>
+						<div class="gallery-image-bottom wow fadeInUp" data-wow-delay=".35s">
+							<div class="single-gallery-image">
+								<img src="assets/images/gallery/pin_04.jpg" width="437"
+									alt="Hình ảnh giải pháp BBO Tech 04" />
+							</div>
+							<div class="single-gallery-image">
+								<img src="assets/images/gallery/pin_05.jpg" width="437"
+									alt="Hình ảnh giải pháp BBO Tech 05" />
+							</div>
+						</div>
+						<!-- Lần lặp 2 (infinite scroll) -->
+						<div class="gallery-image-top">
+							<div class="single-gallery-image">
+								<img src="assets/images/gallery/pin_01.jpg" width="437"
+									alt="Hình ảnh giải pháp BBO Tech 01" />
+							</div>
+							<div class="single-gallery-image">
+								<img src="assets/images/gallery/pin_02.jpg" width="437"
+									alt="Hình ảnh giải pháp BBO Tech 02" />
+							</div>
+							<div class="single-gallery-image">
+								<img src="assets/images/gallery/pin_03.jpg" width="437"
+									alt="Hình ảnh giải pháp BBO Tech 03" />
+							</div>
+						</div>
+						<div class="gallery-image-bottom">
+							<div class="single-gallery-image">
+								<img src="assets/images/gallery/pin_04.jpg" width="437"
+									alt="Hình ảnh giải pháp BBO Tech 04" />
+							</div>
+							<div class="single-gallery-image">
+								<img src="assets/images/gallery/pin_05.jpg" width="437"
+									alt="Hình ảnh giải pháp BBO Tech 05" />
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- END SECTION 7 — GALLERY -->
+
+
+	<!-- =========================================================
+     SECTION 9 — CTA (Call to Action cuối trang)
+     Class: .rts-cta-area-start
+     Vai trò: Thúc đẩy người dùng hành động cuối trang.
+     Nền: Dark gradient (.rts-cta-wrapper) — chữ trắng ĐÚNG Ý.
+     JS liên quan:
+       - .scale-img-from-to → rtsJs.scaleImgFromTo()
+       - .animated-title → rtsJs.textTitleAnimation__2()
+     Assets: cta/1.webp (OK), icon/arrow-up-w.svg (OK), cta/cta-talk.svg (OK).
+========================================================= -->
+	<section class="rts-cta-area-start rts-section-gapBottom">
+		<div class="custom-container">
+			<div class="rts-cta-wrapper">
+				<div class="row align-items-center justify-content-between">
+					<!-- Text CTA trái -->
+					<div class="col-xl-7 col-lg-7">
+						<div class="cta-content-area">
+							<div class="section-title-area">
+								<h2 class="section-title animated-title cw mb-0">
+									Tăng năng suất với AI
+									<span class="gradient-text">Bắt đầu ngay</span>
+								</h2>
+							</div>
+						</div>
+					</div>
+
+					<!-- Ảnh CTA phải + nút circle -->
+					<div class="col-xl-4 col-lg-5">
+						<div class="cta-image-area d-block overflow-hidden">
+							<img class="w-100 scale-img-from-to" data-value-1="1.5" data-value-2="1"
+								src="assets/images/cta/ai_cta.jpg" width="581" alt="" />
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- END SECTION 9 — CTA -->
+
+
+	<!-- =========================================================
+     SECTION 10 — FOOTER
+     Class: .rts-footer-area-one.footer-two.footer-three
+     Vai trò: Logo, mô tả, social, Quick Links, Services, Contact, Copyright.
+     Nền: Dark (#07110B) — chữ trắng/muted (Prompt 03).
+     JS liên quan:
+       - .rts-footer-area-one → rtsJs.blurBottom() (IntersectionObserver)
+       - <script> document.write(new Date().getFullYear()) — đặt năm dynamic
+     ⚠️  logo/02.html = 0 byte → footer logo bị broken.
+         footer/bg-shape-01.html, bg-shape-02.html = 0 byte → decorative shapes vỡ.
+========================================================= -->
+	<footer class="rts-footer-area-one footer-two footer-three pt--60 pb--0" id="contact">
+		<div class="custom-container">
+			<div class="footer-inner">
+
+				<!-- Widget 1: Logo + mô tả + social -->
+				<div class="single-footer-widget-one logo-area">
+					<a href="#" class="logo">
+						<!-- ⚠️  logo/02.html = 0 byte → broken. Cần ảnh thật -->
+						<img class="light" src="assets/images/logo/bbotech_logo.png" alt="BBO Tech" />
+					</a>
+					<p class="desc">
+						Bảo vệ và tối ưu hoạt động doanh nghiệp bằng các giải pháp AI phù hợp với nhu cầu thực tế.
+					</p>
+					<ul class="social-area">
+						<li>
+							<a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+						</li>
+						<li>
+							<a href="#"><i class="fa-brands fa-twitter"></i></a>
+						</li>
+						<li>
+							<a href="#"><i class="fa-brands fa-linkedin"></i></a>
+						</li>
+						<li>
+							<a href="#"><i class="fa-brands fa-instagram"></i></a>
+						</li>
+					</ul>
+				</div>
+
+				<!-- Widget 2: Quick Links -->
+				<div class="single-footer-widget-one essential-links">
+					<h2 class="title">Liên kết nhanh</h2>
+					<ul>
+						<li><a href="#ai-automation">AI Automation</a></li>
+						<li><a href="#multi-platform-chatbot">Chatbot</a></li>
+						<li><a href="#website-solutions">Website</a></li>
+						<li><a href="#growth-infrastructure">Dịch vụ mở rộng</a></li>
+					</ul>
+				</div>
+
+				<!-- Widget 3: Services -->
+				<div class="single-footer-widget-one essential-links">
+					<h2 class="title">Dịch vụ</h2>
+					<ul>
+						<li><a href="#ai-automation">Tự động hóa AI</a></li>
+						<li><a href="#multi-platform-chatbot">Chatbot đa nền tảng</a></li>
+						<li><a href="#website-solutions">Giải pháp Website</a></li>
+						<li><a href="#growth-infrastructure">Hạ tầng &amp; tăng trưởng</a></li>
+					</ul>
+				</div>
+
+				<!-- Widget 4: Contact info -->
+				<div class="single-footer-widget-one contact-us">
+					<h2 class="title">Liên hệ với chúng tôi</h2>
+					<div class="contact-us-list">
+						<div class="single-info">
+							<div class="icon">
+								<i class="fa-solid fa-phone"></i>
+							</div>
+							<div class="info">
+								<h2 class="h6 label">Gọi chúng tôi 24/7</h2>
+								<a href="tel:+25621452156" class="value">(+256) 2145.2156</a>
+							</div>
+						</div>
+						<div class="single-info">
+							<div class="icon">
+								<i class="fa-solid fa-location-dot"></i>
+							</div>
+							<div class="info">
+								<h2 class="h6 label">Địa chỉ</h2>
+								<a href="#" class="value">TP. Hồ Chí Minh, Việt Nam</a>
+							</div>
+						</div>
+						<div class="single-info">
+							<div class="icon">
+								<i class="fa-solid fa-envelope"></i>
+							</div>
+							<div class="info">
+								<h2 class="h6 label">Làm việc với chúng tôi</h2>
+								<a href="mailto:info@bbotech.vn" class="value">info@bbotech.vn</a>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+			<!-- Copyright -->
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="copyright-area-start">
+						<p>
+							BBO Tech ©
+							<script>document.write(new Date().getFullYear());</script>
+							. Đã đăng ký bản quyền.
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Decorative shape footer — ⚠️  file 0 byte → không hiện -->
+		<div class="footer-shape-area">
+		</div>
+	</footer>
+	<!-- END SECTION 10 — FOOTER -->
+
+
+	<!-- =========================================================
+     MOBILE MENU DATA SOURCE (ẩn — d-none)
+     Vai trò: Chứa nav HTML gốc để JS clone vào sidebar offcanvas.
+     ⚠️  DIV này ẩn hoàn toàn nhưng BẮT BUỘC — main.js clone từ đây:
+         var rtsMenuWrap = $('.at-mobile-menu-active .mainmenu').clone();
+         KHÔNG XÓA, KHÔNG ĐỔI class .at-mobile-menu-active hoặc .mainmenu.
+         id="mobile-menu-active" → MetisMenu plugin.
+========================================================= -->
+	<div class="at-mobile-menu-active d-none">
+		<nav>
+			<ul class="mainmenu metismenu" id="mobile-menu-active">
+				<li>
+					<a href="#home" class="main">Trang chủ</a>
+				</li>
+				<li>
+					<a href="#ai-automation" class="main">AI Automation</a>
+				</li>
+				<li>
+					<a href="#multi-platform-chatbot" class="main">Chatbot</a>
+				</li>
+				<li>
+					<a href="#website-solutions" class="main">Website</a>
+				</li>
+				<li>
+					<a href="#growth-infrastructure" class="main">Dịch vụ mở rộng</a>
+				</li>
+				<li>
+					<a href="#contact" class="main">Liên hệ</a>
+				</li>
+			</ul>
+		</nav>
+	</div>
+	<!-- END MOBILE MENU DATA SOURCE -->
+
+
+	<!-- =========================================================
+     SIDEBAR OFFCANVAS MOBILE
+     id: #side-bar
+     Vai trò: Menu slide-in khi bấm hamburger trên mobile.
+     ⚠️  id="side-bar" → rtsJs.mobileMenu() — KHÔNG đổi!
+         .at-offcanvas-2-area → CSS offcanvas slide
+         .hamburger-close-btn → rtsJs.mobileMenu() — KHÔNG đổi!
+         #anywhere-home (overlay) → rtsJs.mobileMenu() — KHÔNG đổi!
+     Nền: Dark (#07110B — Prompt 03)
+========================================================= -->
+	<div id="side-bar" class="side-bar header-two at-offcanvas-2-area">
+		<button type="button" class="close-icon-menu hamburger-close-btn" aria-label="Đóng menu">
+			<i class="fa-sharp fa-thin fa-xmark"></i>
+		</button>
+		<a class="logo" href="index.html"><img src="assets/images/logo/01.svg" alt="BBO Tech" /></a>
+
+		<!-- Nội dung menu sẽ được JS clone vào đây từ .at-mobile-menu-active -->
+		<div class="mobile-menu-main">
+			<div class="at-offcanvas-menu">
+				<nav class="nav-main mainmenu-nav mt--30" aria-label="Menu di động"></nav>
+			</div>
+
+			<!-- Social links trong sidebar -->
+			<div class="follow-us">
+				<ul>
+					<li>
+						<a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+					</li>
+					<li>
+						<a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+					</li>
+					<li>
+						<a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+					</li>
+					<li>
+						<a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!-- END SIDEBAR OFFCANVAS MOBILE -->
+
+
+	<!-- Overlay backdrop — click để đóng menu mobile -->
+	<!-- ⚠️  id="anywhere-home" → rtsJs.mobileMenu() — KHÔNG đổi! -->
+	<div id="anywhere-home" class=""></div>
+
+	<!-- SVG Wave Filter (dùng cho Three.js liquid wave) -->
+	<!-- ⚠️  id="wave", id="turbulence" → rtsJs.liquidWaveActivation() — KHÔNG đổi! -->
+	<svg width="0" height="0" style="position: absolute">
+		<filter id="wave">
+			<feTurbulence id="turbulence" type="turbulence" baseFrequency="0.02" numOctaves="2" result="turb" />
+			<feDisplacementMap in="SourceGraphic" in2="turb" scale="0" />
+		</filter>
+	</svg>
+
+	<!-- =========================================================
+     BACK TO TOP / PROGRESS CIRCLE
+     Class: .progress-wrap
+     Vai trò: Nút scroll lên đầu trang với vòng tròn tiến trình.
+     ⚠️  .progress-wrap → rtsJs.backToTopInit() — KHÔNG đổi class/SVG structure!
+     CSS: stroke màu xanh lá (Prompt 03 override).
+========================================================= -->
+	<div class="progress-wrap">
+		<svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+			<path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" style="
+				transition: stroke-dashoffset 10ms linear 0s;
+				stroke-dasharray: 307.919, 307.919;
+				stroke-dashoffset: 307.919;
+			"></path>
+		</svg>
+	</div>
+	<!-- END BACK TO TOP -->
+
+	<!-- Blur bottom effect (mờ dần khi vào footer) -->
+	<!-- ⚠️  .rts-blur-bottom → rtsJs.blurBottom() — KHÔNG đổi! -->
+	<div class="rts-blur-bottom"></div>
+
+	<!-- RTL switcher (đã comment out — không dùng) -->
+	<!-- <div class="rtl-ltr-switcher-btn">
+    <span class="rtl">View RTL</span>
+    <span class="ltr show">View LTR</span>
+</div> -->
+
+
+	<!-- =========================================================
+     SCRIPTS — Cuối body, tất cả defer
+     ⚠️  THỨ TỰ LOAD BẮT BUỘC:
+         jquery → three → bootstrap → metismenu → waypoint
+         → swiper → gsap → scrolltrigger → split-text
+         → smoothscroll → wow → counter-up → magnific → isotop
+         → contact-form (⚠️ FILE KHÔNG TỒN TẠI → 404)
+         → main.js (CUỐI CÙNG)
+     KHÔNG đổi thứ tự. KHÔNG xóa defer.
+========================================================= -->
+	<script defer src="assets/js/plugins/jquery.min.js"></script>
+	<script defer src="assets/js/plugins/three.min.js"></script>
+	<script defer src="assets/js/plugins/bootstrap.min.js"></script>
+	<script defer src="assets/js/plugins/metismenu.js"></script>
+	<script defer src="assets/js/vendor/waypoint.js"></script>
+	<script defer src="assets/js/plugins/swiper.js"></script>
+	<script defer src="assets/js/plugins/gsap.min.js"></script>
+	<script defer src="assets/js/plugins/scrolltigger.js"></script>
+	<script defer src="assets/js/vendor/split-text.js"></script>
+	<script defer src="assets/js/plugins/smoothscroll.js"></script>
+	<script defer src="assets/js/vendor/wow.js"></script>
+	<script defer src="assets/js/plugins/counter-up.js"></script>
+	<script defer src="assets/js/plugins/magnific-popup.js"></script>
+	<script defer src="assets/js/plugins/isotop.js"></script>
+	<!-- contact-form.js is not present in assets/js/plugins, so it is not loaded. -->
+	<script defer src="assets/js/main.js"></script>
+	<!-- END SCRIPTS -->
+
+</body>
+<!-- END BODY -->
+
+</html>

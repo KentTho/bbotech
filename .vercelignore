@@ -1,0 +1,15 @@
+report/
+report/**
+.vercel/
+.env
+.env.*
+*.log
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+.claude/
+node_modules/
+*.docx
+FORM_CHUAN_VIET_PROMPT_CHO_CLAUDE_CODE_CODEX_ANTIGRAVITY.md
+PROMPT_06R_RECOVER_INTERRUPTED_WORK_AUDIT_CURRENT_STATE.md
