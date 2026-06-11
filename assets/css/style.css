@@ -33854,3 +33854,63 @@ body.home-seven .side-bar.at-offcanvas-2-area .logo img {
 /* =========================================================
    END BBOTECH MOBILE HEADER + HERO BANNER POLISH — Prompt 14F
    ========================================================= */
+
+
+/* =========================================================
+   BBOTECH MOBILE HERO FULL BANNER VISIBILITY — Prompt 14G
+   Mục tiêu:
+   - Banner mobile KHÔNG bị section sau che/cắt (ảnh hiện trọn)
+   - Giảm khoảng trống dư phía trên title (header→title 207px → ~90px)
+   - Ẩn SECTION 02 (brand) rỗng trên mobile + chỉnh spacing tới SECTION 03
+   - Giữ title đậm (P14F) và ảnh banner lớn vừa đủ
+   Root cause: ảnh strip absolute bleed quá đáy hero (bottom âm) → bị
+   overflow:hidden cắt 26px; padding-top 170px tạo top trống lớn; SECTION
+   02 là <div> rỗng tạo khối trắng 120px. Scoped body.home-seven + mobile.
+   Desktop/tablet ≥768 GIỮ NGUYÊN. KHÔNG sửa main.js.
+   ========================================================= */
+
+/* 1) Ẩn SECTION 02 (brand) rỗng — chỉ trên mobile (desktop/tablet giữ spacing cũ) */
+@media only screen and (max-width: 767px) {
+  body.home-seven .rts-brand-area.area-7 {
+    display: none !important;
+  }
+}
+
+/* 2) Hero mobile: bớt top trống + ảnh banner hiện trọn + spacing tới SECTION 03 */
+@media only screen and (max-width: 767px) {
+  body.home-seven .rts-banner-area-seven {
+    height: 700px;
+    margin-bottom: 40px;
+  }
+
+  body.home-seven .rts-banner-area-seven .banner-content-wrapper2 {
+    padding-top: 100px;
+  }
+
+  body.home-seven .rts-banner-area-seven .banner-content-wrapper2 .banner-meta {
+    margin-bottom: 16px;
+  }
+
+  /* ảnh strip neo cách đáy 1 khoảng DƯƠNG → nằm trọn trong hero, không bị cắt */
+  body.home-seven .rts-banner-area-seven .banner-image-wrapper {
+    bottom: 30px;
+  }
+}
+
+@media only screen and (max-width: 575px) {
+  body.home-seven .rts-banner-area-seven {
+    height: 700px;
+  }
+
+  body.home-seven .rts-banner-area-seven .banner-content-wrapper2 {
+    padding-top: 96px;
+  }
+
+  body.home-seven .rts-banner-area-seven .banner-image-wrapper {
+    bottom: 28px;
+  }
+}
+
+/* =========================================================
+   END BBOTECH MOBILE HERO FULL BANNER VISIBILITY — Prompt 14G
+   ========================================================= */
