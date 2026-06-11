@@ -33943,3 +33943,257 @@ body.home-seven .side-bar.at-offcanvas-2-area .logo img {
 /* =========================================================
    END BBOTECH MOBILE SECTION 05 TITLE ABOVE IMAGE — Prompt 14H
    ========================================================= */
+
+
+/* =========================================================
+   BBOTECH BAMBOO FOOTER + WIND CURSOR — Prompt 14I
+   Mục tiêu:
+   - Footer có ambient bamboo animation (mist + culm tre + cụm lá rủ
+     đung đưa theo gió), lấy cảm hứng ảnh tre user gửi.
+   - Wind cursor trail nhẹ trên desktop (làn gió vi vu theo con trỏ).
+   - KHÔNG che nội dung footer, KHÔNG phá layout, KHÔNG đụng main.js.
+   Tông màu: xanh BBO #189e1e, xanh nhạt #A3C644, xanh đậm #0F8A5F,
+   trắng/off-white #d6f0da — translucent, glow nhẹ trên footer tối.
+   ========================================================= */
+
+/* ---------- 1) FOOTER: stacking context cho lớp trang trí ---------- */
+body.home-seven .rts-footer-area-one {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Nội dung footer luôn nằm TRÊN lớp tre */
+body.home-seven .rts-footer-area-one>.custom-container,
+body.home-seven .rts-footer-area-one>.footer-shape-area {
+  position: relative;
+  z-index: 2;
+}
+
+/* Lớp cảnh tre — phủ kín footer, dưới nội dung, không bắt chuột */
+body.home-seven .rts-footer-area-one .bbo-bamboo-scene {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+/* ---------- 2) GREEN MIST / HAZE nền ---------- */
+body.home-seven .bbo-bamboo-scene .bbo-bamboo-haze {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(58% 78% at 92% 16%, rgba(24, 158, 30, 0.22), transparent 70%),
+    radial-gradient(46% 66% at 6% 92%, rgba(163, 198, 68, 0.15), transparent 72%),
+    radial-gradient(40% 50% at 70% 90%, rgba(15, 138, 95, 0.12), transparent 75%);
+  filter: blur(8px);
+}
+
+/* ---------- 3) CULM (thân tre) rìa phải ---------- */
+body.home-seven .bbo-bamboo-scene .bbo-bamboo-stalk {
+  position: absolute;
+  top: -6%;
+  width: 6px;
+  height: 116%;
+  border-radius: 6px;
+  background: linear-gradient(180deg,
+      rgba(163, 198, 68, 0) 0%,
+      rgba(163, 198, 68, 0.28) 16%,
+      rgba(24, 158, 30, 0.32) 52%,
+      rgba(15, 138, 95, 0.26) 84%,
+      rgba(15, 138, 95, 0) 100%);
+}
+
+/* Đốt tre (node bands) */
+body.home-seven .bbo-bamboo-scene .bbo-bamboo-stalk::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: repeating-linear-gradient(180deg,
+      transparent 0 64px,
+      rgba(214, 240, 218, 0.12) 64px 67px);
+}
+
+body.home-seven .bbo-bamboo-scene .bbo-bamboo-stalk--a {
+  right: 6%;
+}
+
+body.home-seven .bbo-bamboo-scene .bbo-bamboo-stalk--b {
+  right: 12%;
+  top: 6%;
+  height: 98%;
+  opacity: 0.6;
+  transform: scaleX(0.78);
+}
+
+/* ---------- 4) CỤM LÁ + LÁ TRE ---------- */
+/* Cụm lá = điểm neo 0x0, đung đưa (sway) như cành tre trong gió */
+body.home-seven .bbo-bamboo-scene .bbo-bamboo-cluster {
+  position: absolute;
+  width: 0;
+  height: 0;
+  transform-origin: 50% 0;
+  animation: bboBambooSway var(--dur, 7s) ease-in-out var(--delay, 0s) infinite alternate;
+}
+
+/* Lá tre mảnh, hai đầu nhọn (lanceolate) toả ra từ điểm neo */
+body.home-seven .bbo-bamboo-scene .bbo-bamboo-leaf {
+  position: absolute;
+  left: calc(var(--lw, 13px) / -2);
+  top: calc(var(--lh, 52px) * -1);
+  width: var(--lw, 13px);
+  height: var(--lh, 52px);
+  border-radius: 0 100% 0 100%;
+  background: linear-gradient(155deg,
+      rgba(163, 198, 68, 0.58) 0%,
+      rgba(24, 158, 30, 0.62) 58%,
+      rgba(15, 138, 95, 0.5) 100%);
+  transform-origin: 50% 100%;
+  transform: rotate(var(--r, 0deg));
+  opacity: var(--op, 0.5);
+  filter: drop-shadow(0 3px 6px rgba(24, 158, 30, 0.18));
+}
+
+/* Gân lá giữa */
+body.home-seven .bbo-bamboo-scene .bbo-bamboo-leaf::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 10%;
+  width: 1px;
+  height: 80%;
+  transform: translateX(-50%);
+  background: linear-gradient(180deg, transparent, rgba(255, 255, 255, 0.32), transparent);
+}
+
+/* Vị trí + nhịp gió từng cụm (so le để tự nhiên) */
+body.home-seven .bbo-bamboo-scene .bbo-bamboo-cluster--tr {
+  top: 14%;
+  right: 7%;
+  --dur: 7.5s;
+  --delay: 0s;
+  --sway-amp: 3.2deg;
+}
+
+body.home-seven .bbo-bamboo-scene .bbo-bamboo-cluster--mr {
+  top: 52%;
+  right: 11%;
+  --dur: 9s;
+  --delay: 0.8s;
+  --sway-amp: 2.6deg;
+}
+
+body.home-seven .bbo-bamboo-scene .bbo-bamboo-cluster--tl {
+  top: 12%;
+  left: 6%;
+  --dur: 8.2s;
+  --delay: 1.4s;
+  --sway-amp: 2.8deg;
+}
+
+body.home-seven .bbo-bamboo-scene .bbo-bamboo-cluster--bl {
+  bottom: 14%;
+  left: 9%;
+  --dur: 9.6s;
+  --delay: 0.4s;
+  --sway-amp: 2.2deg;
+}
+
+@keyframes bboBambooSway {
+  from {
+    transform: rotate(calc(var(--sway-amp, 3deg) * -1));
+  }
+
+  to {
+    transform: rotate(var(--sway-amp, 3deg));
+  }
+}
+
+/* ---------- 5) RESPONSIVE: giảm dần cho tablet/mobile ---------- */
+@media only screen and (max-width: 991px) {
+  body.home-seven .bbo-bamboo-scene .bbo-bamboo-cluster {
+    opacity: 0.78;
+  }
+
+  body.home-seven .bbo-bamboo-scene .bbo-bamboo-stalk--b {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+
+  /* Mobile: giữ mist + cụm góc phải nhẹ, ẩn bớt cụm cho gọn, không rối chữ */
+  body.home-seven .bbo-bamboo-scene .bbo-bamboo-cluster--mr,
+  body.home-seven .bbo-bamboo-scene .bbo-bamboo-cluster--bl {
+    display: none;
+  }
+
+  body.home-seven .bbo-bamboo-scene .bbo-bamboo-cluster {
+    opacity: 0.6;
+    transform: scale(0.82);
+  }
+
+  body.home-seven .bbo-bamboo-scene .bbo-bamboo-haze {
+    opacity: 0.85;
+  }
+}
+
+/* ---------- 6) WIND CURSOR TRAIL (desktop) ---------- */
+.bbo-wind-cursor-layer {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 60;
+  overflow: hidden;
+}
+
+.bbo-wind-puff {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: var(--len, 16px);
+  height: calc(var(--len, 16px) * 0.42);
+  border-radius: 60% 100% 60% 100%;
+  background: linear-gradient(90deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(214, 240, 218, 0.55) 42%,
+      rgba(24, 158, 30, 0.42) 100%);
+  filter: blur(0.6px);
+  opacity: 0;
+  will-change: transform, opacity;
+  transform: translate(-50%, -50%) rotate(var(--rot, 0deg)) scale(var(--sc, 1));
+  animation: bboWindTrail 850ms ease-out forwards;
+}
+
+@keyframes bboWindTrail {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) rotate(var(--rot, 0deg)) scale(calc(var(--sc, 1) * 0.55));
+  }
+
+  20% {
+    opacity: 0.85;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(calc(-50% + var(--dx, 0px)), calc(-50% + var(--dy, 0px))) rotate(calc(var(--rot, 0deg) + 26deg)) scale(var(--sc, 1));
+  }
+}
+
+/* ---------- 7) ACCESSIBILITY: tôn trọng prefers-reduced-motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+
+  body.home-seven .bbo-bamboo-scene .bbo-bamboo-cluster {
+    animation: none;
+  }
+
+  .bbo-wind-cursor-layer {
+    display: none;
+  }
+}
+
+/* =========================================================
+   END BBOTECH BAMBOO FOOTER + WIND CURSOR — Prompt 14I
+   ========================================================= */

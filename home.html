@@ -853,6 +853,51 @@
          footer/bg-shape-01.html, bg-shape-02.html = 0 byte → decorative shapes vỡ.
 ========================================================= -->
 	<footer class="rts-footer-area-one footer-two footer-three pt--60 pb--0" id="contact">
+
+		<!-- =========================================================
+		     P14I — BAMBOO AMBIENT SCENE (trang trí, aria-hidden)
+		     Vẽ thuần CSS: green mist + culm tre rìa phải + các cụm lá tre
+		     rủ đung đưa theo gió. Nằm z-index:0, DƯỚI nội dung footer
+		     (.custom-container z-index:2). KHÔNG chứa text, không đọc bởi
+		     screen reader. Xem block CSS "Prompt 14I" cuối style.css.
+		========================================================= -->
+		<div class="bbo-bamboo-scene" aria-hidden="true">
+			<span class="bbo-bamboo-haze"></span>
+
+			<!-- Culm (thân tre) mảnh ở rìa phải -->
+			<span class="bbo-bamboo-stalk bbo-bamboo-stalk--a"></span>
+			<span class="bbo-bamboo-stalk bbo-bamboo-stalk--b"></span>
+
+			<!-- Cụm lá chính — góc trên phải, rủ xuống trái -->
+			<span class="bbo-bamboo-cluster bbo-bamboo-cluster--tr">
+				<i class="bbo-bamboo-leaf" style="--r:104deg;--lh:70px"></i>
+				<i class="bbo-bamboo-leaf" style="--r:134deg;--lh:62px"></i>
+				<i class="bbo-bamboo-leaf" style="--r:162deg;--lh:54px"></i>
+				<i class="bbo-bamboo-leaf" style="--r:190deg;--lh:48px;--op:.42"></i>
+				<i class="bbo-bamboo-leaf" style="--r:78deg;--lh:50px;--op:.4"></i>
+			</span>
+
+			<!-- Cụm lá phụ — giữa phải -->
+			<span class="bbo-bamboo-cluster bbo-bamboo-cluster--mr">
+				<i class="bbo-bamboo-leaf" style="--r:120deg;--lh:52px"></i>
+				<i class="bbo-bamboo-leaf" style="--r:150deg;--lh:46px"></i>
+				<i class="bbo-bamboo-leaf" style="--r:180deg;--lh:40px;--op:.4"></i>
+			</span>
+
+			<!-- Cụm lá góc trên trái — rủ xuống phải -->
+			<span class="bbo-bamboo-cluster bbo-bamboo-cluster--tl">
+				<i class="bbo-bamboo-leaf" style="--r:-14deg;--lh:54px"></i>
+				<i class="bbo-bamboo-leaf" style="--r:-44deg;--lh:46px"></i>
+				<i class="bbo-bamboo-leaf" style="--r:-74deg;--lh:40px;--op:.4"></i>
+			</span>
+
+			<!-- Sprig nhỏ góc dưới trái -->
+			<span class="bbo-bamboo-cluster bbo-bamboo-cluster--bl">
+				<i class="bbo-bamboo-leaf" style="--r:18deg;--lh:42px;--op:.4"></i>
+				<i class="bbo-bamboo-leaf" style="--r:48deg;--lh:36px;--op:.36"></i>
+			</span>
+		</div>
+
 		<div class="custom-container">
 			<div class="footer-inner">
 
@@ -1104,6 +1149,8 @@
 	<script defer src="assets/js/plugins/isotop.js"></script>
 	<!-- contact-form.js is not present in assets/js/plugins, so it is not loaded. -->
 	<script defer src="assets/js/main.js"></script>
+	<!-- P14I — Wind cursor trail (standalone, không phụ thuộc thư viện; desktop pointer:fine + ≥768px; tôn trọng prefers-reduced-motion) -->
+	<script defer src="assets/js/bbo-wind-cursor.js"></script>
 	<!-- END SCRIPTS -->
 
 </body>
