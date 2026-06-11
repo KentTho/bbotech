@@ -33914,3 +33914,32 @@ body.home-seven .side-bar.at-offcanvas-2-area .logo img {
 /* =========================================================
    END BBOTECH MOBILE HERO FULL BANNER VISIBILITY — Prompt 14G
    ========================================================= */
+
+
+/* =========================================================
+   BBOTECH MOBILE SECTION 05 TITLE ABOVE IMAGE — Prompt 14H
+   Mục tiêu:
+   - SECTION 05 (WaaS) mobile/tablet hiển thị subtitle/title TRÊN ảnh
+   - Giữ desktop layout (≥992: ảnh trái / nội dung phải)
+   - Không phá hiệu ứng ảnh (scrollingzoom-1 / scale-img-from-to)
+   Root cause: DOM order cột ẢNH (col-lg-6 thứ 1) đứng trước cột NỘI DUNG
+   (col-lg-6 thứ 2). Ở ≤991px col-lg-6 = full width → stack theo DOM →
+   ảnh nằm trên subtitle/title. Fix bằng CSS order (scoped, không sửa HTML,
+   không đụng .row global). KHÔNG sửa main.js.
+   ========================================================= */
+@media only screen and (max-width: 991px) {
+  /* Cột nội dung (subtitle/title/desc/nút) lên trên */
+  body.home-seven .rts-stock-image-area .rts-stock-image-wrapper .row>.col-lg-6:nth-child(2) {
+    order: 1;
+  }
+
+  /* Cột ảnh xuống dưới + khoảng cách thở với khối tiêu đề */
+  body.home-seven .rts-stock-image-area .rts-stock-image-wrapper .row>.col-lg-6:nth-child(1) {
+    order: 2;
+    margin-top: 24px;
+  }
+}
+
+/* =========================================================
+   END BBOTECH MOBILE SECTION 05 TITLE ABOVE IMAGE — Prompt 14H
+   ========================================================= */
