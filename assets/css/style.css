@@ -33517,3 +33517,224 @@ body.home-seven .rts-cta-area-start .rts-cta-wrapper .gradient-text .char {
 /* =========================================================
    END BBOTECH SECTION 09 GREEN + SECTION 07 NATURAL REVEAL — Prompt 13P
    ========================================================= */
+
+
+/* =========================================================
+   BBOTECH POST PUSH VISUAL POLISH — Prompt 14D
+   Mục tiêu:
+   - Hero heading tách banner image rõ hơn
+   - SEC06 hover sync visual/content
+   - SEC07 content center hơn
+   - SEC09 glow border + no scroll shrink
+   Scope chặt body.home-seven. KHÔNG sửa main.js / vendor / plugin.
+   ========================================================= */
+
+/* ---------------------------------------------------------
+   1) HERO / BANNER — tăng khoảng cách heading ↔ banner image strip
+   Ảnh strip là position:absolute; bottom:0 (neo đáy section), heading neo
+   top (padding-top:170px). Tăng chiều cao section → đẩy strip xuống → gap
+   rõ hơn mà KHÔNG thu nhỏ ảnh, KHÔNG overflow (section overflow:hidden).
+   Override đúng từng breakpoint khớp height gốc (1028/940/840/780).
+   --------------------------------------------------------- */
+@media only screen and (min-width: 1601px) {
+  body.home-seven .rts-banner-area-seven {
+    height: 1072px;
+    /* 1028 + 44 */
+  }
+}
+
+@media only screen and (max-width: 1600px) {
+  body.home-seven .rts-banner-area-seven {
+    height: 984px;
+    /* 940 + 44 */
+  }
+}
+
+@media only screen and (max-width: 1400px) {
+  body.home-seven .rts-banner-area-seven {
+    height: 882px;
+    /* 840 + 42 */
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  body.home-seven .rts-banner-area-seven {
+    height: 810px;
+    /* 780 + 30 (tablet/mobile gap vừa phải) */
+  }
+}
+
+/* ---------------------------------------------------------
+   2) SECTION 06 — hover content → hiện visual tương ứng
+   Dùng CSS :has() (Chrome target hỗ trợ). Khi hover một content card
+   is-pos-N: pause auto animation + ép visual N active, ẩn visual khác.
+   Fallback: trình duyệt không hỗ trợ :has() → selector bị bỏ qua,
+   auto animation (bboSec06VisualFix/ItemFix) vẫn chạy bình thường.
+   KHÔNG đổi nội dung / ảnh / sync delay 0-4-8s.
+   --------------------------------------------------------- */
+
+/* transition cho highlight hover mượt */
+body.home-seven .rts-working-process-area .service-sync-list .service-sync-item {
+  transition: transform 0.3s ease, background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Khi hover bất kỳ content card → tạm dừng auto animation (visual + item) */
+body.home-seven .rts-working-process-area .service-sync-wrapper:has(.service-sync-item:hover) .service-visual-card,
+body.home-seven .rts-working-process-area .service-sync-wrapper:has(.service-sync-item:hover) .service-sync-item {
+  animation-play-state: paused;
+}
+
+/* ----- pos-1: hover content 1 → visual 1 active ----- */
+body.home-seven .rts-working-process-area .service-sync-wrapper:has(.service-sync-item.is-pos-1:hover) .service-visual-card {
+  opacity: 0 !important;
+}
+
+body.home-seven .rts-working-process-area .service-sync-wrapper:has(.service-sync-item.is-pos-1:hover) .service-visual-card.is-pos-1 {
+  opacity: 1 !important;
+  transform: scale(1) !important;
+  z-index: 3;
+}
+
+/* ----- pos-2: hover content 2 → visual 2 active ----- */
+body.home-seven .rts-working-process-area .service-sync-wrapper:has(.service-sync-item.is-pos-2:hover) .service-visual-card {
+  opacity: 0 !important;
+}
+
+body.home-seven .rts-working-process-area .service-sync-wrapper:has(.service-sync-item.is-pos-2:hover) .service-visual-card.is-pos-2 {
+  opacity: 1 !important;
+  transform: scale(1) !important;
+  z-index: 3;
+}
+
+/* ----- pos-3: hover content 3 → visual 3 active ----- */
+body.home-seven .rts-working-process-area .service-sync-wrapper:has(.service-sync-item.is-pos-3:hover) .service-visual-card {
+  opacity: 0 !important;
+}
+
+body.home-seven .rts-working-process-area .service-sync-wrapper:has(.service-sync-item.is-pos-3:hover) .service-visual-card.is-pos-3 {
+  opacity: 1 !important;
+  transform: scale(1) !important;
+  z-index: 3;
+}
+
+/* Content card đang hover nổi bật (chữ vẫn đọc rõ, KHÔNG dùng opacity thấp) */
+body.home-seven .rts-working-process-area .service-sync-list .service-sync-item:hover {
+  background: rgba(255, 255, 255, 0.98) !important;
+  border-color: rgba(24, 158, 30, 0.70) !important;
+  box-shadow: 0 14px 36px rgba(24, 158, 30, 0.22) !important;
+  transform: translateX(4px);
+}
+
+body.home-seven .rts-working-process-area .service-sync-list .service-sync-item:hover .service-icon {
+  background: rgba(24, 158, 30, 0.18);
+  transform: scale(1.06);
+}
+
+/* ---------------------------------------------------------
+   3) SECTION 07 — đẩy content xuống, không dính mép trên
+   .rts-gallery-area không có padding-top → title-area dính sát viền trên.
+   Thêm padding-top clamp để content group nằm "trung tâm" hơn, vẫn giữ
+   gallery pin visible (P13L-2) + reveal (P13N/P13P), không tạo blank quá lớn.
+   --------------------------------------------------------- */
+body.home-seven .rts-gallery-area {
+  padding-top: clamp(48px, 7vw, 112px);
+}
+
+@media only screen and (max-width: 575px) {
+  body.home-seven .rts-gallery-area {
+    padding-top: clamp(32px, 8vw, 56px);
+  }
+}
+
+/* ---------------------------------------------------------
+   4) SECTION 09 — ảnh KHÔNG thu nhỏ khi cuộn + viền sáng chạy quanh ảnh
+   data-value 1/1 đã set trong HTML → GSAP scale 1→1 (không shrink).
+   overflow:hidden gốc của .cta-image-area được mở (visible) cho riêng SEC09
+   vì không còn scale transient cần cắt → glow halo hiển thị đủ.
+   --------------------------------------------------------- */
+@property --bbo-glow-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+/* mở overflow để glow halo không bị cắt (scale đã neutralize) */
+body.home-seven .rts-cta-area-start .cta-image-area {
+  overflow: visible !important;
+}
+
+/* Khung glow bao quanh ảnh — conic-gradient xanh quay tròn */
+body.home-seven .rts-cta-area-start .cta-image-area .bbo-cta-glow-frame {
+  position: relative;
+  display: inline-block;
+  max-width: 470px;
+  width: 100%;
+  padding: 5px;
+  /* độ dày vòng sáng */
+  border-radius: 22px;
+  background: conic-gradient(from var(--bbo-glow-angle),
+      #189e1e, #A3C644, #22C55E, #0F8A5F, #16a34a, #189e1e);
+  box-shadow: 0 0 26px rgba(34, 197, 94, 0.45);
+  animation: bboCtaGlowSpin 6s linear infinite;
+  isolation: isolate;
+}
+
+/* halo mờ phía sau làm viền sáng "tỏa" mềm */
+body.home-seven .rts-cta-area-start .cta-image-area .bbo-cta-glow-frame::before {
+  content: "";
+  position: absolute;
+  inset: -3px;
+  border-radius: inherit;
+  background: conic-gradient(from var(--bbo-glow-angle),
+      #189e1e, #A3C644, #22C55E, #0F8A5F, #16a34a, #189e1e);
+  filter: blur(12px);
+  opacity: 0.55;
+  z-index: -1;
+  animation: bboCtaGlowSpin 6s linear infinite;
+}
+
+/* ảnh nằm trên, bo góc nhỏ hơn khung để lộ vòng sáng; nền che tâm conic */
+body.home-seven .rts-cta-area-start .cta-image-area .bbo-cta-glow-frame img {
+  position: relative;
+  display: block;
+  width: 100% !important;
+  max-width: 100%;
+  height: auto;
+  max-height: 320px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 18px;
+  margin: 0;
+  /* override căn giữa P13M để fit khung */
+  background: #07110B;
+}
+
+@keyframes bboCtaGlowSpin {
+  to {
+    --bbo-glow-angle: 360deg;
+  }
+}
+
+@media only screen and (max-width: 991px) {
+  body.home-seven .rts-cta-area-start .cta-image-area .bbo-cta-glow-frame img {
+    max-height: 260px;
+  }
+}
+
+@media only screen and (max-width: 575px) {
+  body.home-seven .rts-cta-area-start .cta-image-area .bbo-cta-glow-frame img {
+    max-height: 220px;
+  }
+}
+
+/* prefers-reduced-motion: tắt quay, giữ glow tĩnh */
+@media (prefers-reduced-motion: reduce) {
+  body.home-seven .rts-cta-area-start .cta-image-area .bbo-cta-glow-frame,
+  body.home-seven .rts-cta-area-start .cta-image-area .bbo-cta-glow-frame::before {
+    animation: none;
+  }
+}
+
+/* =========================================================
+   END BBOTECH POST PUSH VISUAL POLISH — Prompt 14D
+   ========================================================= */

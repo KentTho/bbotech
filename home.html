@@ -826,8 +826,12 @@
 					<!-- Ảnh CTA phải + nút circle -->
 					<div class="col-xl-4 col-lg-5">
 						<div class="cta-image-area d-block overflow-hidden">
-							<img class="w-100 scale-img-from-to" data-value-1="1.5" data-value-2="1"
-								src="assets/images/cta/ai_cta.jpg" width="581" alt="" />
+							<!-- P14D: neutralize scale-img-from-to (data-value 1/1 → KHÔNG thu nhỏ khi cuộn);
+							     thêm wrapper .bbo-cta-glow-frame cho hiệu ứng viền sáng chạy quanh ảnh. -->
+							<div class="bbo-cta-glow-frame">
+								<img class="w-100 scale-img-from-to" data-value-1="1" data-value-2="1"
+									src="assets/images/cta/ai_cta.jpg" width="581" alt="" />
+							</div>
 						</div>
 					</div>
 				</div>
