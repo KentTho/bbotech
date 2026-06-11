@@ -33778,3 +33778,79 @@ body.home-seven .side-bar.at-offcanvas-2-area .logo img {
 /* =========================================================
    END BBOTECH MOBILE SIDEBAR LOGO FIX — Prompt 14E
    ========================================================= */
+
+
+/* =========================================================
+   BBOTECH MOBILE HEADER + HERO BANNER POLISH — Prompt 14F
+   Mục tiêu:
+   - Header mobile logo cân giữa + rõ hơn (cũ 83x36, lệch lên -4px)
+   - Hero title mobile đậm hơn (600 → 800)
+   - Banner mobile gần title hơn (gap ~172px → ~50px) + ảnh lớn hơn nhẹ
+   Scope chặt body.home-seven + mobile media (≤767/≤575). KHÔNG sửa
+   main.js, KHÔNG ảnh hưởng desktop (≥768), KHÔNG đụng sidebar P14E.
+   ========================================================= */
+
+/* ---------- 1) HEADER MOBILE LOGO: cân giữa theo chiều cao + rõ hơn ---------- */
+@media only screen and (max-width: 767px) {
+  body.home-seven .header-style-one-wrapper .logo-area {
+    display: flex;
+    align-items: center;
+    min-height: 48px;
+  }
+
+  body.home-seven .header-style-one-wrapper .logo-area .logo {
+    display: flex;
+    align-items: center;
+    min-width: 0;
+    line-height: 0;
+  }
+
+  body.home-seven .header-style-one-wrapper .logo-area .logo img.light {
+    display: block;
+    width: auto;
+    height: 42px;
+    max-height: 42px;
+    max-width: 150px;
+    object-fit: contain;
+  }
+}
+
+/* ---------- 2) HERO TITLE MOBILE: tăng độ đậm ---------- */
+@media only screen and (max-width: 767px) {
+  body.home-seven .rts-banner-area-seven .banner-title,
+  body.home-seven .rts-banner-area-seven .banner-title *,
+  body.home-seven .rts-banner-area-seven .rts-text-anime-style-1,
+  body.home-seven .rts-banner-area-seven .rts-text-anime-style-1 * {
+    font-weight: 800 !important;
+  }
+}
+
+/* ---------- 3) HERO BANNER MOBILE: thu gap + phóng to ảnh nhẹ ----------
+   Ảnh strip absolute neo bottom (P13A/P13B). Giảm height section ở mobile
+   để strip nhích lên gần title; đồng thời tăng flex-basis ảnh (~+15%).
+   Desktop/tablet ≥768 GIỮ NGUYÊN P14D (height 810+). */
+@media only screen and (max-width: 767px) {
+  body.home-seven .rts-banner-area-seven {
+    height: 760px;
+  }
+
+  body.home-seven .rts-banner-area-seven .banner-image-wrapper .wrapper-inner>.image-wrapper,
+  body.home-seven .rts-banner-area-seven .banner-image-wrapper .wrapper-inner>.col-6 {
+    flex-basis: min(70vw, 262px);
+  }
+}
+
+@media only screen and (max-width: 575px) {
+  body.home-seven .rts-banner-area-seven {
+    height: 740px;
+  }
+
+  body.home-seven .rts-banner-area-seven .banner-image-wrapper .wrapper-inner>.image-wrapper,
+  body.home-seven .rts-banner-area-seven .banner-image-wrapper .wrapper-inner>.col-6 {
+    flex-basis: min(72vw, 270px);
+  }
+}
+
+/* =========================================================
+   END BBOTECH MOBILE HEADER + HERO BANNER POLISH — Prompt 14F
+   ========================================================= */
