@@ -33738,3 +33738,43 @@ body.home-seven .rts-cta-area-start .cta-image-area .bbo-cta-glow-frame img {
 /* =========================================================
    END BBOTECH POST PUSH VISUAL POLISH — Prompt 14D
    ========================================================= */
+
+
+/* =========================================================
+   BBOTECH MOBILE SIDEBAR LOGO FIX — Prompt 14E
+   Mục tiêu:
+   - Logo offcanvas mobile đúng BBO Tech
+   - Không vỡ sidebar/mobile layout
+   - Không ảnh hưởng header desktop
+   Nguyên nhân gốc: logo bbotech_logo.png có kích thước thật
+   5325x2318px. Wrapper .logo dùng max-width:max-content nên
+   ảnh nở ra ~5325px → tràn ngang → vỡ cả trang khi mở menu.
+   Fix: ràng buộc kích thước ảnh logo trong sidebar (scoped).
+   ========================================================= */
+body.home-seven .side-bar.at-offcanvas-2-area .logo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  max-width: 160px;
+  overflow: hidden;
+}
+
+body.home-seven .side-bar.at-offcanvas-2-area .logo img {
+  display: block;
+  width: auto;
+  max-width: 160px;
+  height: auto;
+  max-height: 56px;
+  object-fit: contain;
+}
+
+@media only screen and (max-width: 400px) {
+  body.home-seven .side-bar.at-offcanvas-2-area .logo,
+  body.home-seven .side-bar.at-offcanvas-2-area .logo img {
+    max-width: 150px;
+  }
+}
+
+/* =========================================================
+   END BBOTECH MOBILE SIDEBAR LOGO FIX — Prompt 14E
+   ========================================================= */
